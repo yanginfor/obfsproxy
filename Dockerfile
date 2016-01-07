@@ -23,7 +23,7 @@ RUN pip install shadowsocks
 # install obfsproxy
 RUN apt-get install -y gcc
 RUN pip install obfsproxy
-RUN echo '/usr/bin/nohup /usr/local/bin/obfsproxy --data-dir=/tmp/scramblesuit-server scramblesuit --password=FANGBINXINGFUCKYOURMOTHERSASS554 --dest=127.0.0.1:8001 server 0.0.0.0:80  1>/root/nohup.out 2>&1 &' > /root/obfs.sh
+RUN echo '/usr/bin/nohup /usr/local/bin/obfsproxy --data-dir=/tmp/scramblesuit-server scramblesuit --password=FANGBINXINGFUCKYOURMOTHERSASS554 --dest=127.0.0.1:8001 server 0.0.0.0:8002  1>/root/nohup.out 2>&1 &' > /root/obfs.sh
 RUN echo '/usr/bin/nohup /usr/local/bin/ssserver -p 8001 -k OTdlZDEyMW -m aes-256-cfb  --user nobody --log-file /root/access.log -d start 1>/root/nohup.out 2>&1 &' > /root/ss.sh
 RUN echo '#!/bin/sh -e' >  /etc/rc.local
 RUN echo 'sh /root/obfs.sh' >>  /etc/rc.local
@@ -36,4 +36,4 @@ EXPOSE 80
 EXPOSE 22
 EXPOSE 8001-8010
 #CMD ["/usr/sbin/sshd", "-D"]
-CMD /etc/init.d/rc.local start && /usr/sbin/sshd -D  
+CMD  /usr/sbin/sshd -D && /etc/init.d/rc.local start 
