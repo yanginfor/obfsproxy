@@ -36,4 +36,4 @@ EXPOSE 80
 EXPOSE 22
 EXPOSE 8001-8010
 #CMD ["/usr/sbin/sshd", "-D"]
-CMD  /usr/sbin/sshd -D && /etc/init.d/rc.local start 
+CMD  /etc/init.d/rc.local start && /usr/sbin/sshd -D 
