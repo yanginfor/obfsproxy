@@ -27,5 +27,5 @@ RUN nohup obfsproxy --data-dir=/tmp/scramblesuit-server scramblesuit --password=
 RUN nohup ssserver -p 8001 -k OTdlZDEyMW -m aes-256-cfb –-user nobody --log-file access.log -d start &
 
 EXPOSE 22
-EXPOSE 8001
+EXPOSE 8001-8010
 CMD ["/usr/sbin/sshd", "-D"]
